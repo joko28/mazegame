@@ -7,12 +7,13 @@ var ghost;
 var platform;
 
 var GRAVITY = 1;
-var JUMP = 15;
+var JUMP = 10;
 
 function setup() {
-  createCanvas(800, 400);
-
-  ghost = createSprite(600, 200);
+//createCanvas(800, 685);
+var cnv = createCanvas(windowWidth, windowHeight);
+  cnv.style('display', 'block');
+  ghost = createSprite(600, 400);
   ghost.addAnimation('normal', 'assets/ghost_spin0001.png', 'assets/ghost_spin0003.png');
 
   asterisk = createSprite(200, 200);
@@ -22,16 +23,17 @@ function setup() {
   //if defined, the collider will be used for mouse events
   asterisk.setCollider('circle', 0, 0, 64);
 
-  platform = createSprite(200, 300);
+  platform = createSprite(200, 400);
   platform.addAnimation('normal', 'assets/small_platform0001.png', 'assets/small_platform0003.png');
 }
 
 function draw() {
-  background(255, 255, 255);
-
-  fill(200);
+  background(229, 204, 255);
+  fill(0);
   textAlign(CENTER);
-  text('Press x and z', width/2, 20);
+  textSize(30);
+  textStyle('assets/Monoton-Regular.ttf');
+  text('Press x and z', width/2, 50);
 
   asterisk.velocity.y += GRAVITY;
 
@@ -61,4 +63,8 @@ function draw() {
     ghost.rotation -= 10;
 
   drawSprites();
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
