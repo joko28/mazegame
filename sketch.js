@@ -5,9 +5,14 @@
 var asterisk;
 var ghost;
 var platform;
+var myFont;
 
 var GRAVITY = 1;
 var JUMP = 10;
+
+function preload() {
+  myFont = loadFont('assets/Monoton.Regular.ttf');
+}
 
 function setup() {
 //createCanvas(800, 685);
@@ -25,15 +30,14 @@ var cnv = createCanvas(windowWidth, windowHeight);
 
   platform = createSprite(200, 400);
   platform.addAnimation('normal', 'assets/small_platform0001.png', 'assets/small_platform0003.png');
+
 }
 
 function draw() {
   background(229, 204, 255);
-  fill(0);
-  textAlign(CENTER);
-  textSize(30);
-  textStyle('assets/Monoton-Regular.ttf');
-  text('Press x and z', width/2, 50);
+
+  drawText(font);
+  windowResized();
 
   asterisk.velocity.y += GRAVITY;
 
@@ -64,6 +68,13 @@ function draw() {
 
   drawSprites();
 }
+
+function drawText(font) {
+  fill(0);
+  textFont(myFont);
+  textAlign(CENTER);
+  textSize(20);
+  text('Press x and z', width/2, 40);
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
