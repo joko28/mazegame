@@ -8,18 +8,11 @@
 var triangle;
 var cloud;
 var platform;
-var myFont;
-
 var GRAVITY = 1;
 
-function preload() {
-  myFont = loadFont('assets/fonts/Monoton.Regular.ttf');
-}
-
 function setup() {
-//  createCanvas(800, 400);
-  var cnv = createCanvas(windowWidth, windowHeight);
-    cnv.style('display', 'block');
+  createCanvas(800, 400);
+
   triangle = createSprite(300, 150);
   triangle.addAnimation('normal', 'assets/triangle.png');
   triangle.debug = true;
@@ -67,18 +60,4 @@ function draw() {
   }
 
   drawSprites();
-  drawText(font);
-  windowResized();
-}
-
-function drawText(font) {
-  fill(0);
-  textFont(myFont);
-  textAlign(CENTER);
-  textSize(20);
-  text('Move with arrows', width/2, 40);
-}
-
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
 }
