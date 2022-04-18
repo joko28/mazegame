@@ -79,7 +79,7 @@ function drawText(font) {
   textFont(myFont);
   textAlign(CENTER);
   textSize(20);
-  text('Move with arrows', width/2, 40);
+  text('Move with arrows', width/2, 60);
 }
 
 function windowResized() {
